@@ -9,22 +9,52 @@ export default function Index({
   wordPoolSize,
   feedSize
 }) {
-
   const [wordPool, setWordPool] = useState({});
   useEffect(() => {
     setWordPool(words.getMostPopular(wordPoolSize))
   }, [])
 
-  return (
+  const [feed, setFeed] = useState({});
+  useEffect(() => {
+    let newFeed = []
+    const keys = Object.keys(wordPool)
+    for (let i = 0; i < feedSize; i++) {
+        let randomWord = wordPool[keys[Math.floor(Math.random() * keys.length)]]
+        newFeed.push(randomWord);
+    }
+    setFeed(newFeed)
+  }, [wordPool]) 
 
+  const [activeWord, setActiveWord] = useState('')
+  useEffect(()=> {
+    setActiveWord(feed[0])
+  }, [feed, activeWord])
+
+  const [input, setInput] = useState('');
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  }
+
+  useEffect(() => {
+    if(input === activeWord){
+      setInput('')
+      setFeed(Array.from(feed).slice(1));
+    }
+  }, [input])
+
+
+
+  
     
-
+  return (
     <div className={'cycle'}>
       <Feeder 
-        wordPool = {wordPool}
-        feedSize = {feedSize}
+        activeWord = {activeWord}
       />
-      <Eater />
+      <Eater 
+        input = {input}
+        handleInputChange = {handleChange}
+      />
     </div>
   )
 }
