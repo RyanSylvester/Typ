@@ -1,9 +1,10 @@
-import Dojo from './components/dojo/'
+import Dojo from './containers/dojo'
+import './style.css'
 
 function App() {
   return (
     <> 
-      <Dojo />
+      <Dojo/>
     </>
   );
 }
