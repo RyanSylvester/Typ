@@ -27,14 +27,12 @@ export default function Index({
 
 // Detect button press  
   const handleKeyPress = (event) => {
-    console.log(event.key)
     // If esc
     if(event.key === 'Escape' && cycleIsActive){
       endCycle();
     }
     // If anything
     if(event.key && !cycleIsActive){
-      console.log(cycleIsActive)
       startCycle();
     }
   };
