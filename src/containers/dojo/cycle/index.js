@@ -35,6 +35,18 @@ export default function Index({
     setInput(e.target.value);
   }
 
+  const [count, setCount] = useState(20);
+  const prevCount = count;
+
+  useEffect(() => {
+    if (count > 0){
+      const interval = setInterval(() => {
+        setCount(prevCount - 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [count]);
+
   useEffect(() => {
     if(input === activeWord){
       setInput('')
@@ -42,10 +54,6 @@ export default function Index({
     }
   }, [input])
 
-
-
-  
-    
   return (
     <div className={'cycle'}>
       <Feeder 
@@ -55,6 +63,7 @@ export default function Index({
         input = {input}
         handleInputChange = {handleChange}
       />
+      <div className={'counter'}>{count}</div>
     </div>
   )
 }

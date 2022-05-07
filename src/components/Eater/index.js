@@ -13,6 +13,7 @@ export default function Index({
         variant="standard"
         value={input}
         onChange={handleInputChange}
+        autoComplete='off'
         />
     </div>
   )

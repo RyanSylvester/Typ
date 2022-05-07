@@ -34,13 +34,19 @@ html {
 
 .feeder {
     background: none;
+    font-family: LatoBold;
 }
 
 .eater {
     background: none;
 }
 
+.counter {
+    color: rgba(95, 158, 160,1);
+    margin-top: 20px;
+}
+
 .header {
     font-family: LatoBold;
-    color:cadetblue;
+    color:#5f9ea0;
 }
