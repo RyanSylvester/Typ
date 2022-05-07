@@ -8,7 +8,7 @@ export default function index() {
       <Cycle 
         wordPoolSize={500}
         feedSize={50}
-        timerDuration={5}
+        timerDuration={20}
       />
     </div>
   );

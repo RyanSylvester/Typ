@@ -6,6 +6,16 @@
     font-family: 'LatoBold';
     src: local('LatoBlack'), url(./../public/fonts/Lato/Lato-Black.ttf) format('truetype');
 }
+
+@keyframes grow {
+    from {width:0%;}
+    to {width: 100%;}
+}
+@keyframes fadeIn {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
 html {
     font-family: Lato;
     background-color: azure;
@@ -34,11 +44,18 @@ html {
 
 .feeder {
     background: none;
-    font-family: LatoBold;
+    font-family: Lato;
+    animation-name: fadeIn;
+    animation-duration:1s;
+    animation-delay:0.5s;
+    animation-fill-mode: backwards;
 }
 
 .eater {
     background: none;
+    animation-name: grow;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(1,-0.02, 0.18, 1.38);
 }
 
 .counter {
