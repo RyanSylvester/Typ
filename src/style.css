@@ -27,7 +27,8 @@ html {
     text-align: center;
     justify-content: center;
     width:100%;
-    height: 50vh;
+    height: 45vh;
+    margin-top: 50px;
     display: flex;
 }
 
@@ -58,9 +59,22 @@ html {
     animation-timing-function: cubic-bezier(1,-0.02, 0.18, 1.38);
 }
 
+.statsBar{
+    margin-top: 10px;
+    background: none;
+}
+
+.eats{
+    width: 100%;
+    display:inline;
+    position:absolute;
+    right: 70px;
+}
+
 .counter {
     color: rgba(95, 158, 160,1);
-    margin-top: 20px;
+    display:inline;
+    right:20;
 }
 
 .header {

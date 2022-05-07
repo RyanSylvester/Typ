@@ -11,12 +11,15 @@ export default function Index({
   timerDuration
 }) {
   const startCycle = () => {
+    setTimerOpacity(1);
     setCount(timerDuration);
+    setEats(0);
     setCycleIsActive(true);
   }
 
   const endCycle = () => {
     setCycleIsActive(false);
+    setTimerOpacity(0.2);
     setCount(timerDuration);
   }
 
@@ -37,7 +40,7 @@ export default function Index({
     }
   };
 
-
+  const [timerOpacity, setTimerOpacity] = useState(0);
   const [cycleIsActive, setCycleIsActive] = useState(false);
 
   const [wordPool, setWordPool] = useState({});
@@ -68,6 +71,9 @@ export default function Index({
     }
   }
 
+  const [eats, setEats] = useState(0);
+
+
   const [count, setCount] = useState(timerDuration);
   const prevCount = count;
 
@@ -84,6 +90,9 @@ export default function Index({
 
   useEffect(() => {
     if(input === activeWord){
+      if (cycleIsActive){
+        setEats(eats+1)
+      }
       nextWord();
     }
   }, [input])
@@ -97,7 +106,10 @@ export default function Index({
         input = {input}
         handleInputChange = {handleChange}
       />
-      <div className={'counter'}>{count}</div>
+      <div className={'statsBar'}>
+        <div className={'eats'}>{eats}</div>
+        <div className={'counter'} style={{opacity: timerOpacity}}>{count}</div>
+      </div>
     </div>
   )
 }
