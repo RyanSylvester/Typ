@@ -15,11 +15,17 @@
     from {opacity: 0%;}
     to {opacity: 100%;}
 }
+@keyframes colourPop {
+    from {background-color: rgb(255, 255, 255);}
+    to {background-color: azure;}
+}
 
 html {
     font-family: Lato;
     background-color: azure;
     background-size: 2000px;
+    animation-name: colourPop;
+    animation-duration: 2s;
 }
 
 .dojo {
@@ -62,6 +68,11 @@ html {
 .statsBar{
     margin-top: 10px;
     background: none;
+    animation-name: fadeIn;
+    animation-duration:1s;
+    animation-delay:0.5s;
+    animation-fill-mode: backwards;
+
 }
 
 .eats{
