@@ -50,12 +50,26 @@ html {
 }
 
 .feeder {
-    background: none;
     font-family: Lato;
-    animation-name: fadeIn;
+    animation-name: fadeIn;  
+    margin-bottom: 20px;
     animation-duration:1s;
     animation-delay:0.5s;
     animation-fill-mode: backwards;
+    text-align: center;
+    margin-left: 54px;
+}
+
+.activeWord{
+    display: inline;
+}
+.onDeck {
+    display:inline;
+    color: #5f9ea0;
+}
+.onDeckWords{
+    display:inline;
+    margin-left: 10px;
 }
 
 .eater {
