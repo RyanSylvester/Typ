@@ -8,7 +8,16 @@ export default function Index({
   activeTab
 }) {
 
-
+  const tabsDisplay = tabs.map((tab) => 
+    <Tab 
+      label={tab} 
+      sx={{
+        fontFamily: tab === activeTab ? 'LatoBold' : 'Lato',
+        color: tab === activeTab ? 'rgba(95, 158, 160,1)' : 'rgba(95, 158, 160,0.4)',  
+        fontSize: 30
+      }}
+    />
+  )
   return (
     <div className={"headerMenu"}>
       <Tabs 
@@ -16,12 +25,13 @@ export default function Index({
       onChange={handleTabSwitch}
       centered
       >
-          <Tab label="DOJO" 
+        {tabsDisplay}
+          {/* <Tab label="DOJO" 
           sx={{fontFamily: 'LatoBold', color:'#5f9ea0', fontSize: 30}}
           />
           <Tab label="STATS"
           sx={{fontFamily: 'LatoBold', color:'#5f9ea0', fontSize: 30}}
-          />
+          /> */}
       </Tabs>
     </div>
   )

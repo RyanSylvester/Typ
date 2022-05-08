@@ -8,7 +8,7 @@ function App() {
   
   const tabs = ['DOJO', 'STATS']
   const handleTabSwitch = () =>{}
-  const [activeTab, setActiveTab] = useState('Dojo')
+  const [activeTab, setActiveTab] = useState('DOJO')
 
   return (
     <> 

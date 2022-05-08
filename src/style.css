@@ -37,10 +37,8 @@ html {
     margin-top: 50px;
 }
 
-.headerTabs > * {
-    font-family: LatoBold;
-    color:#5f9ea0;
-}
+/* .headerTabs > * {
+} */
 
 .dojo {
     position: relative;
