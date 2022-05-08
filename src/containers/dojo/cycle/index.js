@@ -42,8 +42,8 @@ export default function Index({
 
   const [timerOpacity, setTimerOpacity] = useState(0);
   const [cycleIsActive, setCycleIsActive] = useState(false);
-
   const [wordPool, setWordPool] = useState({});
+
   useEffect(() => {
     setWordPool(words.getMostPopular(wordPoolSize));
   }, [])
@@ -62,7 +62,14 @@ export default function Index({
   const [activeWord, setActiveWord] = useState('');
   useEffect(()=> {
     setActiveWord(feed[0]);
+    let newDeck = []
+    for(let i = 0; i < 50; i++){
+      newDeck.push(feed[i+1]);
+    }
+    setOnDeck(newDeck);
   }, [feed, activeWord]);
+
+  const [onDeck, setOnDeck] = useState([]);
 
   const [input, setInput] = useState('');
   const handleChange = (e) => {
@@ -101,6 +108,7 @@ export default function Index({
     <div className={'cycle'} onKeyDown={handleKeyPress}>
       <Feeder 
         activeWord = {activeWord}
+        onDeck = {onDeck}
       />
       <Eater 
         input = {input}

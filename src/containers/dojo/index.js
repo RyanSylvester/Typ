@@ -7,7 +7,7 @@ export default function index() {
       <h1 className={'header'}>DOJO</h1>
       <Cycle 
         wordPoolSize={500}
-        feedSize={50}
+        feedSize={100}
         timerDuration={20}
       />
     </div>
