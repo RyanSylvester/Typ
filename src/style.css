@@ -28,12 +28,26 @@ html {
     animation-duration: 2s;
 }
 
+
+
+.headerTabs {
+    
+    width: 300px;
+    margin:auto;
+    margin-top: 50px;
+}
+
+.headerTabs > * {
+    font-family: LatoBold;
+    color:#5f9ea0;
+}
+
 .dojo {
     position: relative;
     text-align: center;
     justify-content: center;
     width:100%;
-    height: 45vh;
+    height: 35vh;
     margin-top: 50px;
     display: flex;
 }
