@@ -8,14 +8,16 @@ export default function Index({
   activeTab
 }) {
 
-  const tabsDisplay = tabs.map((tab) => 
+  const tabsDisplay = tabs.map((tab, i) => 
     <Tab 
       label={tab} 
       sx={{
-        fontFamily: tab === activeTab ? 'LatoBold' : 'Lato',
-        color: tab === activeTab ? 'rgba(95, 158, 160,1)' : 'rgba(95, 158, 160,0.4)',  
+        fontFamily: tab === tabs[activeTab] ? 'LatoBold' : 'Lato',
+        color: tab === tabs[activeTab] ? 'rgba(95, 158, 160,1)' : 'rgba(95, 158, 160,0.4)',  
         fontSize: 30
       }}
+      key={i}
+      value={i}
     />
   )
   return (
@@ -23,15 +25,10 @@ export default function Index({
       <Tabs 
       className={"headerTabs"}
       onChange={handleTabSwitch}
+      value = {activeTab}
       centered
       >
         {tabsDisplay}
-          {/* <Tab label="DOJO" 
-          sx={{fontFamily: 'LatoBold', color:'#5f9ea0', fontSize: 30}}
-          />
-          <Tab label="STATS"
-          sx={{fontFamily: 'LatoBold', color:'#5f9ea0', fontSize: 30}}
-          /> */}
       </Tabs>
     </div>
   )

@@ -7,8 +7,26 @@ import './style.css'
 function App() {
   
   const tabs = ['DOJO', 'STATS']
-  const handleTabSwitch = () =>{}
-  const [activeTab, setActiveTab] = useState('DOJO')
+  const handleTabSwitch = (e, value) =>{
+    setActiveTab(value);
+  }
+  const [activeTab, setActiveTab] = useState(0);
+
+  const tabSelection = () => {
+      switch(tabs[activeTab]) {
+        case 'DOJO':
+          return <Dojo/>
+          break;
+        case 'STATS':
+          return <Stats/>
+          break;
+        default:
+          return <Dojo/>
+          break;
+
+      }
+    }
+
 
   return (
     <> 
@@ -17,7 +35,7 @@ function App() {
         handleTabSwitch = {handleTabSwitch}
         activeTab = {activeTab}
       />
-      <Dojo/>
+      {tabSelection()}
     </>
   );
 }
