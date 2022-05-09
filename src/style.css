@@ -37,8 +37,15 @@ html {
     margin-top: 50px;
 }
 
-/* .headerTabs > * {
-} */
+.activeTab {
+    font-family: LatoBold !important;
+    color:#5f9ea0 !important;
+}
+
+.menuIndicator {
+    background: #5f9ea0 !important;
+    height: 1px !important;
+}
 
 .dojo {
     position: relative;

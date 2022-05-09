@@ -16,6 +16,10 @@ export default function Index({
         color: tab === tabs[activeTab] ? 'rgba(95, 158, 160,1)' : 'rgba(95, 158, 160,0.4)',  
         fontSize: 30
       }}
+      classes={{
+        selected: 'activeTab'
+      }}
+
       key={i}
       value={i}
     />
@@ -26,6 +30,9 @@ export default function Index({
       className={"headerTabs"}
       onChange={handleTabSwitch}
       value = {activeTab}
+      classes={{
+        indicator: 'menuIndicator'
+      }}
       centered
       >
         {tabsDisplay}

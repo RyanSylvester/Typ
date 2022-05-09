@@ -63,7 +63,7 @@ export default function Index({
   useEffect(()=> {
     setActiveWord(feed[0]);
     let newDeck = []
-    for(let i = 0; i < 50; i++){
+    for(let i = 0; i < 10; i++){
       newDeck.push(feed[i+1]);
     }
     setOnDeck(newDeck);
