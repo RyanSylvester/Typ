@@ -4,7 +4,6 @@ import {words} from 'popular-english-words'
 import Feeder from './../../../components/Feeder'
 import Eater from './../../../components/Eater'
 
-
 export default function Index({
   wordPoolSize,
   feedSize,
@@ -14,13 +13,13 @@ export default function Index({
     setTimerOpacity(1);
     setCount(timerDuration);
     setEats(0);
+    setCycleIsReady(false);
     setCycleIsActive(true);
   }
 
   const endCycle = () => {
     setCycleIsActive(false);
     setTimerOpacity(0.2);
-    setCount(timerDuration);
   }
 
   const nextWord = () => {
@@ -31,17 +30,27 @@ export default function Index({
 // Detect button press  
   const handleKeyPress = (event) => {
     // If esc
-    if(event.key === 'Escape' && cycleIsActive){
+    if(event.key === 'Escape'){
       endCycle();
+      setCycleIsReady(true);
     }
     // If anything
-    if(event.key && !cycleIsActive){
+    if(event.key && !cycleIsActive && cycleIsReady){
       startCycle();
     }
   };
 
-  const [timerOpacity, setTimerOpacity] = useState(0);
+  const [cycleIsReady, setCycleIsReady] = useState(true);
   const [cycleIsActive, setCycleIsActive] = useState(false);
+
+  useEffect(() => {
+    if(cycleIsReady){
+      setCount(timerDuration);
+      setInput('');
+    }
+  }, [cycleIsReady])
+
+  const [timerOpacity, setTimerOpacity] = useState(0);
   const [wordPool, setWordPool] = useState({});
 
   useEffect(() => {
