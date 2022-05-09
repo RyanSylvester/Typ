@@ -28,8 +28,6 @@ html {
     animation-duration: 2s;
 }
 
-
-
 .headerTabs {
     
     width: 300px;
@@ -55,6 +53,28 @@ html {
     height: 35vh;
     margin-top: 50px;
     display: flex;
+}
+
+.results {
+    
+    padding: 15px;
+    position: absolute;
+    bottom: 140px;
+    color:#5f9ea0;
+    animation-name: fadeIn;  
+    margin-bottom: 5px;
+    animation-duration:1s;
+}
+
+.results > * {
+    text-align: left;
+}
+.resultsText{
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #5f9ea0;
+    font-size:10pt;
+    margin-bottom: 10px;
 }
 
 .cycle {

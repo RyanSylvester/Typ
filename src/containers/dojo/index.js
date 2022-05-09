@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {words} from 'popular-english-words'
+import CycleResults from './cycleResults'
 import Cycle from './cycle'
 
 export default function Index({
@@ -96,7 +97,6 @@ export default function Index({
 
   const [eats, setEats] = useState(0);
 
-
   const [count, setCount] = useState(timerDuration);
   const prevCount = count;
 
@@ -123,6 +123,11 @@ export default function Index({
 
   return (
     <div className={'dojo'} onKeyDown={handleKeyPress}>
+      <CycleResults
+        results = {cycleResults}
+        cycleIsActive={cycleIsActive}
+        cycleIsReady={cycleIsReady}
+      />
       <Cycle 
         eats={eats}
         count={count}
