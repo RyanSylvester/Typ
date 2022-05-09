@@ -1,2 +1,2 @@
 # typ
-Best enjoyed with clicky keys
+a react project
