@@ -15,7 +15,11 @@ function App() {
   const tabSelection = () => {
       switch(tabs[activeTab]) {
         case 'DOJO':
-          return <Dojo/>
+          return <Dojo
+            wordPoolSize={500}
+            feedSize={100}
+            timerDuration={20}
+          />
           break;
         case 'STATS':
           return <Stats/>
