@@ -22,6 +22,13 @@ export default function Index({
     setTimerOpacity(0.2);
   }
 
+  const saveCycleResults = () => {
+    setCycleResults({
+      totalEats: eats,
+      WPM: eats / (timerDuration / 60)
+    })
+  }
+
   const nextWord = () => {
     setInput('');
     setFeed(Array.from(feed).slice(1));
@@ -39,6 +46,8 @@ export default function Index({
       startCycle();
     }
   };
+
+  const [cycleResults, setCycleResults] = useState({});
 
   const [cycleIsReady, setCycleIsReady] = useState(true);
   const [cycleIsActive, setCycleIsActive] = useState(false);
@@ -100,6 +109,7 @@ export default function Index({
       }, 1000);
       return () => clearInterval(interval);
     } else{
+      saveCycleResults()
       endCycle();
     }
   }, [count, cycleIsActive]);
