@@ -6,7 +6,7 @@ export default function Index({
 }) {
     
     const onDeckDisplay = onDeck.map((word, i) =>
-        <div className={'onDeckWords'} style={{opacity:1-(0.1*i)}}>{word}</div>
+        <div key={i} className={'onDeckWords'} style={{opacity:1-(0.1*i)}}>{word}</div>
     )
     return (
         <div className={'feeder'}>
