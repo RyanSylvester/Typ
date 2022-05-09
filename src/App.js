@@ -1,10 +1,41 @@
 import Dojo from './containers/dojo'
+import Stats from './containers/stats'
+import HeadMenu from './containers/headMenu'
+import React, { useState } from 'react'
 import './style.css'
 
 function App() {
+  
+  const tabs = ['DOJO', 'STATS']
+  const handleTabSwitch = (e, value) =>{
+    setActiveTab(value);
+  }
+  const [activeTab, setActiveTab] = useState(0);
+
+  const tabSelection = () => {
+      switch(tabs[activeTab]) {
+        case 'DOJO':
+          return <Dojo/>
+          break;
+        case 'STATS':
+          return <Stats/>
+          break;
+        default:
+          return <Dojo/>
+          break;
+
+      }
+    }
+
+
   return (
     <> 
-      <Dojo/>
+      <HeadMenu
+        tabs = {tabs}
+        handleTabSwitch = {handleTabSwitch}
+        activeTab = {activeTab}
+      />
+      {tabSelection()}
     </>
   );
 }

@@ -28,12 +28,31 @@ html {
     animation-duration: 2s;
 }
 
+
+
+.headerTabs {
+    
+    width: 300px;
+    margin:auto;
+    margin-top: 50px;
+}
+
+.activeTab {
+    font-family: LatoBold !important;
+    color:#5f9ea0 !important;
+}
+
+.menuIndicator {
+    background: #5f9ea0 !important;
+    height: 1px !important;
+}
+
 .dojo {
     position: relative;
     text-align: center;
     justify-content: center;
     width:100%;
-    height: 45vh;
+    height: 35vh;
     margin-top: 50px;
     display: flex;
 }
@@ -70,6 +89,7 @@ html {
 .onDeckWords{
     display:inline;
     margin-left: 10px;
+    width: 10px;
 }
 
 .eater {
