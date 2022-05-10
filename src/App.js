@@ -20,17 +20,12 @@ function App() {
             feedSize={100}
             timerDuration={20}
           />
-          break;
         case 'STATS':
           return <Stats/>
-          break;
         default:
           return <Dojo/>
-          break;
-
       }
     }
-
 
   return (
     <> 
