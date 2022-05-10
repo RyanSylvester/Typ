@@ -8,6 +8,8 @@ export default function Index({
   feedSize,
   timerDuration
 }) {
+
+  // Cycle modes
   const startCycle = () => {
     setTimerOpacity(1);
     setCount(timerDuration);
@@ -24,7 +26,8 @@ export default function Index({
   const saveCycleResults = () => {
     setCycleResults({
       totalEats: eats,
-      WPM: eats / (timerDuration / 60)
+      WPM: eats / (timerDuration / 60),
+      accuracy: ((eats / (eats + mistakes)) * 100).toFixed()
     })
   }
 
@@ -40,13 +43,26 @@ export default function Index({
       endCycle();
       setCycleIsReady(true);
     }
+    // If space
+    if(event.key === ' ' && cycleIsActive){
+      if (input === activeWord){
+        setEats(eats+1);
+      } else{
+        setMistakes(mistakes+1);
+      }
+      nextWord();
+    }
     // If anything
     if(event.key && !cycleIsActive && cycleIsReady){
       startCycle();
     }
   };
 
-  const [cycleResults, setCycleResults] = useState({});
+  const [cycleResults, setCycleResults] = useState({
+    totalEats: 0,
+    WPM: 0,
+    accuracy: 0
+  });
 
   const [cycleIsReady, setCycleIsReady] = useState(true);
   const [cycleIsActive, setCycleIsActive] = useState(false);
@@ -91,11 +107,14 @@ export default function Index({
   const [input, setInput] = useState('');
   const handleChange = (e) => {
     if(cycleIsActive) {
-      setInput(e.target.value);
+      // target value, prevent spaces
+      setInput(e.target.value.replace(/\s/g, ''));
     }
   }
 
+  // eats are words from the feeder that are... eaten.
   const [eats, setEats] = useState(0);
+  const [mistakes, setMistakes] = useState(0);
 
   const [count, setCount] = useState(timerDuration);
   const prevCount = count;
@@ -112,19 +131,10 @@ export default function Index({
     }
   }, [count, cycleIsActive]);
 
-  useEffect(() => {
-    if(input === activeWord){
-      if (cycleIsActive){
-        setEats(eats+1)
-      }
-      nextWord();
-    }
-  }, [input])
-
   return (
     <div className={'dojo'} onKeyDown={handleKeyPress}>
       <CycleResults
-        results = {cycleResults}
+        results={cycleResults}
         cycleIsActive={cycleIsActive}
         cycleIsReady={cycleIsReady}
       />

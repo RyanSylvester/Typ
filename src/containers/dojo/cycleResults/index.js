@@ -12,6 +12,7 @@ export default function Index({
             <div className={'resultsText'}>Results</div>
             <div><strong>WPM:</strong> {results.WPM}</div>
             <div><strong>Words: </strong>{results.totalEats}</div>
+            <div><strong>Accuracy: </strong>{results.accuracy}%</div>
         </div>
     }
     </>
