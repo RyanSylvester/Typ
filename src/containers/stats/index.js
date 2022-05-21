@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Index() {
   return (
-    <div>STATS</div>
+    <div className={"underConstruction"}>STATS COMING SOON!</div>
   )
 }

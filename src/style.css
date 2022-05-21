@@ -146,3 +146,10 @@ html {
     font-family: LatoBold;
     color:#5f9ea0;
 }
+
+.underConstruction {
+    color: rgba(95, 158, 160,1);
+    margin-top: 100px;
+    text-align: center;
+    
+}
