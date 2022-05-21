@@ -1,2 +1,2 @@
 # typ
-a react project
+A simple typing test made with react.
