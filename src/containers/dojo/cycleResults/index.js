@@ -13,6 +13,7 @@ export default function Index({
             <div><strong>WPM:</strong> {results.WPM}</div>
             <div><strong>Words: </strong>{results.totalEats}</div>
             <div><strong>Accuracy: </strong>{results.accuracy}%</div>
+            <div className={'promptESC'}><b>ESC</b> to reset</div>
         </div>
     }
     </>
