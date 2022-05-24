@@ -77,6 +77,12 @@ html {
     margin-bottom: 10px;
 }
 
+.promptESC{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
 .cycle {
     position: absolute;
     border-radius: 9px;
